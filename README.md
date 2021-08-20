@@ -68,3 +68,31 @@ jsconfig.json
 ```sh
 npm i -D sass
 ```
+
+## Storybook
+
+```sh
+npx sb init
+npm i -D storybook-builder-vite
+```
+
+edit .storybook/main.js
+
+```js
+// NEW
+const reactJsx = require("vite-react-jsx");
+
+module.exports = {
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  // NEW
+  core: {
+    builder: "storybook-builder-vite",
+  },
+  // NEW
+  async viteFinal(config, { configType }) {
+    config.plugins.push(reactJsx.default());
+    return config;
+  },
+};
+```
