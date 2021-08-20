@@ -50,7 +50,9 @@ export default defineConfig({
 });
 ```
 
-```jsconfig.json
+jsconfig.json
+
+```json
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -59,4 +61,10 @@ export default defineConfig({
     }
   }
 }
+```
+
+## SCSS
+
+```sh
+npm i -D sass
 ```
