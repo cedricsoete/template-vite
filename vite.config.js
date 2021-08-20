@@ -7,5 +7,10 @@ export default defineConfig({
   plugins: [
     reactRefresh(),
     reactJsx()
-  ]
+  ],
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, 'src'),
+    },
+  },
 })

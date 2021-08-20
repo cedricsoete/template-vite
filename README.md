@@ -27,3 +27,36 @@ export default defineConfig({
 ```
 
 remove 'import React from 'react'
+
+## alias
+
+edit vite.config.js
+
+```js
+import { defineConfig } from "vite";
+import reactRefresh from "@vitejs/plugin-react-refresh";
+import reactJsx from "vite-react-jsx";
+// NEW
+import { resolve } from "path";
+
+export default defineConfig({
+  plugins: [reactRefresh(), reactJsx()],
+  // new
+  resolve: {
+    alias: {
+      "~": resolve(__dirname, "src"),
+    },
+  },
+});
+```
+
+```jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  }
+}
+```
